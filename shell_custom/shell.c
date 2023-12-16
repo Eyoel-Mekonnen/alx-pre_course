@@ -31,7 +31,7 @@ int main(void)
 			free_strtow(ptr);	
 			exit(EXIT_SUCCESS);
 		}
-		if (line == NULL || line[0] == '\n' || line[0] == ' ')
+		if (line == NULL || line[0] == '\n')
 		{
 			free(line);
 			line = NULL;

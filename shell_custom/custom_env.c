@@ -4,7 +4,7 @@
  * @ptr2: the token passed 
  *
  */
-void custom_env(char **ptr2 __attribute__((unused)), char **ptr)
+void custom_env(char **ptr2 __attribute__((unused)), char **ptr __attribute((unused)))
 {
 	extern char **environ;
 	int i;
@@ -12,6 +12,4 @@ void custom_env(char **ptr2 __attribute__((unused)), char **ptr)
 	{
 		printf("%s\n", environ[i]);
 	}
-	free_strtow(ptr2);
-	free_strtow(ptr);
 }

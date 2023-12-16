@@ -30,7 +30,7 @@ char ** concatenator(char **environ, char **environ2, char *combined, int tracke
 		*(environ2 + i) = malloc(sizeof(char) * (count + 1));
 		if (environ2[i] == NULL)
 		{
-			free_strtow(environ);
+			free_strtow(environ2);
 			perror("malloc failed for environ2 element");
 			return (NULL);
 		}
