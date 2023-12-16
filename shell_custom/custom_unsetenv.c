@@ -4,7 +4,7 @@
  * @ptr2: the user input tokenized
  *
  */
-void custom_unsetenv(char **ptr2)
+void custom_unsetenv(char **ptr2, char **ptr __attribute__((unused)))
 {
 	int i, argument_count = 0, result;
 

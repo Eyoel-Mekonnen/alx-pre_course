@@ -11,7 +11,7 @@
 char ** concatenator(char **environ, char **environ2, char *combined, int tracker)
 {
 	char *string;
-	int i, j, count, k;
+	int i, j, count;
 	
 	for (i = 0; environ[i] != NULL; i++)
 	{
@@ -30,12 +30,8 @@ char ** concatenator(char **environ, char **environ2, char *combined, int tracke
 		*(environ2 + i) = malloc(sizeof(char) * (count + 1));
 		if (environ2[i] == NULL)
 		{
+			free_strtow(environ);
 			perror("malloc failed for environ2 element");
-			for (k = 0; k < i; k++)
-			{
-				free(environ2[k]);
-			}
-			free(environ2);
 			return (NULL);
 		}
 		for (j = 0; j < count; j++)
@@ -82,6 +78,8 @@ int _setenv(const char *name, const char *value, int overwrite)
 		count_value++;
 	combined_size = count_name + count_value + 1;
 	combined = malloc(sizeof(char) * (combined_size + 1));
+	if (combined == NULL)
+		return (-1);
 	for (i = 0; name[i] != '\0'; i++)
 	{
 		combined[i] = name[i];

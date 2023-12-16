@@ -79,7 +79,7 @@ int word_count1(char *str, int i)
  */
 char **strtow_path(char *str)
 {
-	int i = 0, count = 0, len = 0, wordcount, setter, j = 0, flag, k;
+	int i = 0, count = 0, len = 0, wordcount, setter, j = 0, flag;
 	char **ptr;
 
 	if (str == NULL)
@@ -102,12 +102,7 @@ char **strtow_path(char *str)
 			*(ptr + j) = (char *)malloc((wordcount + 1) * sizeof(char));
 			if (*(ptr + j) == NULL)
                         {
-                                k = 0;
-                                for (k = 0; k < j; k++)
-                                {
-                                        free(ptr[k]);
-                                }
-                                free(ptr);
+				free_strtow(ptr);
                                 return (NULL);
                         }
 			flag = i - wordcount;

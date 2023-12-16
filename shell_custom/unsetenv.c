@@ -10,7 +10,7 @@
 char **remover(char ** environ, char **environ2, int tracker)
 {
 	char *string;
-	int i, j, count, k = 0, l;
+	int i, j, k = 0, count;
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
@@ -29,11 +29,7 @@ char **remover(char ** environ, char **environ2, int tracker)
 		*(environ2 + k) = malloc(sizeof(char) * (count + 1));
 		if (environ2[k] == NULL)
 		{
-			for (l = 0; l < k; l++)
-			{
-				free(environ2[l]);
-			}
-			free(environ2);
+			free_strtow(environ2);
 			return (NULL);
 		}
 		for (j = 0; j < count; j++)

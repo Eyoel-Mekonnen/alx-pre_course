@@ -4,7 +4,7 @@
  * @ptr2: the token of input passed
  *
  */
-void custom_setenv(char **ptr2)
+void custom_setenv(char **ptr2, char **ptr __attribute__((unused)))
 {
 	int i, argument_count = 0, overwrite = 1, result;
 

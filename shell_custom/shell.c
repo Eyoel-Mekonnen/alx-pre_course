@@ -19,7 +19,7 @@ int main(void)
 	int count_token_number = 0, i, value, command_executed = 0;
 
 	line = NULL;
-	ptr = strtow1(path);
+	ptr = strtow_path(path);
 	while (1)
 	{
 	 	if (isatty(STDIN_FILENO))
@@ -38,8 +38,10 @@ int main(void)
 			continue;
 		}
 		corrected_line = line_corrected(line);
-		ptr2 = strtowa(corrected_line);
+		free(line);
+		ptr2 = strtow(corrected_line);
 		free(corrected_line);
+
 		for (i = 0; ptr2[i] != NULL; i++)
 			count_token_number++;
 		command_part = ptr2[0];
@@ -48,7 +50,7 @@ int main(void)
 			value = _strcmp1(command_part, custom_commands[i].command);
 			if (value == 0)
 			{
-				custom_commands[i].func(ptr2);
+				custom_commands[i].func(ptr2, ptr);
 				command_executed = 1;
 				break;
 			}
@@ -60,7 +62,6 @@ int main(void)
 		}
 		free_strtow(ptr2);
 		ptr2 = NULL;
-		free(line);
 		line = NULL;
 	}
 	free_strtow(ptr);

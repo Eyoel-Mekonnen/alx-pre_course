@@ -4,7 +4,7 @@
  * @ptr2: the tokenized input of user passed
  *
  */
-void custom_cd(char **ptr2)
+void custom_cd(char **ptr2, char **ptr)
 {
 	int argument_count = 0, i, result;
 	const char *dirhome;
@@ -27,8 +27,9 @@ void custom_cd(char **ptr2)
 		result = chdir(ptr2[1]);
 		if (result == -1)
 		{
-			perror("cd");
+			free_strtow(ptr);
 			free_strtow(ptr2);
+			perror("cd");
 		}
 	}
 }

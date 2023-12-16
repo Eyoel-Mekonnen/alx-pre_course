@@ -20,7 +20,6 @@ void execute_command(char *command_part, char **ptr, char **ptr2)
 	for (i = 0; ptr[i] != NULL; i++)
 	{
 		path_part = ptr[i];
-		appended = appender(path_part, command_part);
 		if (command_part[0] == '/')
 		{
 			path_part = "";
@@ -31,7 +30,7 @@ void execute_command(char *command_part, char **ptr, char **ptr2)
 			path_part = ptr[i];
 			appended = appender(path_part, command_part);
 			if (appended == NULL)
-			{
+			{	free(appended);
 				perror("Memory allocation failed for appended");
 				break;
 			}
