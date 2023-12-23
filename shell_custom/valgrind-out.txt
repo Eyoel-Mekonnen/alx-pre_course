@@ -1,107 +1,271 @@
-==3832== Memcheck, a memory error detector
-==3832== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==3832== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
-==3832== Command: ./hsh
-==3832== Parent PID: 760
-==3832== 
---3832-- 
---3832-- Valgrind options:
---3832--    --leak-check=full
---3832--    --show-leak-kinds=all
---3832--    --track-origins=yes
---3832--    --verbose
---3832--    --log-file=valgrind-out.txt
---3832-- Contents of /proc/version:
---3832--   Linux version 5.15.133.1-microsoft-standard-WSL2 (root@1c602f52c2e4) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP Thu Oct 5 21:02:42 UTC 2023
---3832-- 
---3832-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
---3832-- Page sizes: currently 4096, max supported 4096
---3832-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
---3832-- Reading syms from /alx-pre_course/shell_custom/hsh
---3832-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
---3832--   Considering /usr/lib/debug/.build-id/7a/e2aaae1a0e5b262df913ee0885582d2e327982.debug ..
---3832--   .. build-id is valid
---3832-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
---3832--    object doesn't have a symbol table
---3832--    object doesn't have a dynamic symbol table
---3832-- Scheduler: using generic scheduler lock implementation.
---3832-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
-==3832== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-3832-by-root-on-???
-==3832== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-3832-by-root-on-???
-==3832== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-3832-by-root-on-???
-==3832== 
-==3832== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==3832== don't want to do, unless you know exactly what you're doing,
-==3832== or are doing some strange experiment):
-==3832==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=3832 ...command...
-==3832== 
-==3832== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==3832==   /path/to/gdb ./hsh
-==3832== and then give GDB the following command
-==3832==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=3832
-==3832== --pid is optional if only one valgrind process is running
-==3832== 
---3832-- REDIR: 0x4022e20 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
---3832-- REDIR: 0x4022bf0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
---3832-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
---3832--    object doesn't have a symbol table
---3832-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
---3832--    object doesn't have a symbol table
-==3832== WARNING: new redirection conflicts with existing -- ignoring it
---3832--     old: 0x04022e20 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
---3832--     new: 0x04022e20 (strlen              ) R-> (2007.0) 0x0483f060 strlen
---3832-- REDIR: 0x401f600 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
---3832-- REDIR: 0x4023380 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
---3832-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
---3832--   Considering /usr/lib/debug/.build-id/ee/be5d5f4b608b8a53ec446b63981bba373ca0ca.debug ..
---3832--   .. build-id is valid
---3832-- REDIR: 0x48f3480 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2780 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f37b0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f20a0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f27e0 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f4c50 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x490fce0 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x490f820 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f35e0 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f3410 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2710 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2150 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f3540 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x490f7e0 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2670 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2230 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f3800 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f21d0 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f3950 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x4910f50 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x490f860 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2820 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2100 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2630 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48fbbb0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f3850 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f33d0 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x490f930 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f2ae0 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f3750 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f36f0 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f4c90 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x48f38a0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
---3832-- REDIR: 0x49db730 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
---3832-- REDIR: 0x49db900 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
---3832-- REDIR: 0x49d7230 (libc.so.6:__strncmp_avx2) redirected to 0x483f670 (strncmp)
---3832-- REDIR: 0x48ed0e0 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
---3832-- REDIR: 0x49db540 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
---3832-- REDIR: 0x49d7760 (libc.so.6:__memchr_avx2) redirected to 0x4840050 (memchr)
---3832-- REDIR: 0x49de910 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
---3832-- REDIR: 0x48ed6d0 (libc.so.6:free) redirected to 0x483c9d0 (free)
---3832-- REDIR: 0x49de8f0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
-==3832== 
-==3832== HEAP SUMMARY:
-==3832==     in use at exit: 0 bytes in 0 blocks
-==3832==   total heap usage: 56 allocs, 56 frees, 3,387 bytes allocated
-==3832== 
-==3832== All heap blocks were freed -- no leaks are possible
-==3832== 
-==3832== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==5049== Memcheck, a memory error detector
+==5049== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==5049== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==5049== Command: ./hsh
+==5049== Parent PID: 2257
+==5049== 
+--5049-- 
+--5049-- Valgrind options:
+--5049--    --leak-check=full
+--5049--    --show-leak-kinds=all
+--5049--    --track-origins=yes
+--5049--    --verbose
+--5049--    --log-file=valgrind-out.txt
+--5049-- Contents of /proc/version:
+--5049--   Linux version 5.15.133.1-microsoft-standard-WSL2 (root@1c602f52c2e4) (gcc (GCC) 11.2.0, GNU ld (GNU Binutils) 2.37) #1 SMP Thu Oct 5 21:02:42 UTC 2023
+--5049-- 
+--5049-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand
+--5049-- Page sizes: currently 4096, max supported 4096
+--5049-- Valgrind library directory: /usr/lib/x86_64-linux-gnu/valgrind
+--5049-- Reading syms from /alx-pre_course/shell_custom/hsh
+--5049-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-2.31.so
+--5049--   Considering /usr/lib/debug/.build-id/7a/e2aaae1a0e5b262df913ee0885582d2e327982.debug ..
+--5049--   .. build-id is valid
+--5049-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/memcheck-amd64-linux
+--5049--    object doesn't have a symbol table
+--5049--    object doesn't have a dynamic symbol table
+--5049-- Scheduler: using generic scheduler lock implementation.
+--5049-- Reading suppressions file: /usr/lib/x86_64-linux-gnu/valgrind/default.supp
+==5049== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-5049-by-root-on-???
+==5049== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-5049-by-root-on-???
+==5049== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-5049-by-root-on-???
+==5049== 
+==5049== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==5049== don't want to do, unless you know exactly what you're doing,
+==5049== or are doing some strange experiment):
+==5049==   /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=5049 ...command...
+==5049== 
+==5049== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==5049==   /path/to/gdb ./hsh
+==5049== and then give GDB the following command
+==5049==   target remote | /usr/lib/x86_64-linux-gnu/valgrind/../../bin/vgdb --pid=5049
+==5049== --pid is optional if only one valgrind process is running
+==5049== 
+--5049-- REDIR: 0x4022e20 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c9ce2 (???)
+--5049-- REDIR: 0x4022bf0 (ld-linux-x86-64.so.2:index) redirected to 0x580c9cfc (???)
+--5049-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_core-amd64-linux.so
+--5049--    object doesn't have a symbol table
+--5049-- Reading syms from /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so
+--5049--    object doesn't have a symbol table
+==5049== WARNING: new redirection conflicts with existing -- ignoring it
+--5049--     old: 0x04022e20 (strlen              ) R-> (0000.0) 0x580c9ce2 ???
+--5049--     new: 0x04022e20 (strlen              ) R-> (2007.0) 0x0483f060 strlen
+--5049-- REDIR: 0x401f600 (ld-linux-x86-64.so.2:strcmp) redirected to 0x483ffd0 (strcmp)
+--5049-- REDIR: 0x4023380 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4843a20 (mempcpy)
+--5049-- Reading syms from /usr/lib/x86_64-linux-gnu/libc-2.31.so
+--5049--   Considering /usr/lib/debug/.build-id/ee/be5d5f4b608b8a53ec446b63981bba373ca0ca.debug ..
+--5049--   .. build-id is valid
+--5049-- REDIR: 0x48f3480 (libc.so.6:memmove) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2780 (libc.so.6:strncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f37b0 (libc.so.6:strcasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f20a0 (libc.so.6:strcat) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f27e0 (libc.so.6:rindex) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f4c50 (libc.so.6:rawmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x490fce0 (libc.so.6:wmemchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x490f820 (libc.so.6:wcscmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f35e0 (libc.so.6:mempcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f3410 (libc.so.6:bcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2710 (libc.so.6:strncmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2150 (libc.so.6:strcmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f3540 (libc.so.6:memset) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x490f7e0 (libc.so.6:wcschr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2670 (libc.so.6:strnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2230 (libc.so.6:strcspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f3800 (libc.so.6:strncasecmp) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f21d0 (libc.so.6:strcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f3950 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x4910f50 (libc.so.6:wcsnlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x490f860 (libc.so.6:wcscpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2820 (libc.so.6:strpbrk) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2100 (libc.so.6:index) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2630 (libc.so.6:strlen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48fbbb0 (libc.so.6:memrchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f3850 (libc.so.6:strcasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f33d0 (libc.so.6:memchr) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x490f930 (libc.so.6:wcslen) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f2ae0 (libc.so.6:strspn) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f3750 (libc.so.6:stpncpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f36f0 (libc.so.6:stpcpy) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f4c90 (libc.so.6:strchrnul) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x48f38a0 (libc.so.6:strncasecmp_l) redirected to 0x48311d0 (_vgnU_ifunc_wrapper)
+--5049-- REDIR: 0x49db730 (libc.so.6:__strrchr_avx2) redirected to 0x483ea10 (rindex)
+--5049-- REDIR: 0x49db900 (libc.so.6:__strlen_avx2) redirected to 0x483ef40 (strlen)
+--5049-- REDIR: 0x49d7230 (libc.so.6:__strncmp_avx2) redirected to 0x483f670 (strncmp)
+--5049-- REDIR: 0x48ed0e0 (libc.so.6:malloc) redirected to 0x483b780 (malloc)
+--5049-- REDIR: 0x49db540 (libc.so.6:__strchrnul_avx2) redirected to 0x4843540 (strchrnul)
+--5049-- REDIR: 0x49d7760 (libc.so.6:__memchr_avx2) redirected to 0x4840050 (memchr)
+--5049-- REDIR: 0x49de910 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x48429f0 (memmove)
+--5049-- REDIR: 0x48ed6d0 (libc.so.6:free) redirected to 0x483c9d0 (free)
+--5049-- REDIR: 0x49de8f0 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4843660 (mempcpy)
+--5049-- REDIR: 0x49dbdc0 (libc.so.6:__strcat_avx2) redirected to 0x483ec20 (strcat)
+==5049== Invalid read of size 1
+==5049==    at 0x483EF46: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48CBD14: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff240 is on thread 1's stack
+==5049==  2488 bytes below stack pointer
+==5049== 
+==5049== Invalid read of size 1
+==5049==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48CBD14: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff241 is on thread 1's stack
+==5049==  2487 bytes below stack pointer
+==5049== 
+==5049== Invalid read of size 1
+==5049==    at 0x48E270C: _IO_new_file_xsputn (fileops.c:1219)
+==5049==    by 0x48E270C: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==5049==    by 0x48CA0FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff263 is on thread 1's stack
+==5049==  2381 bytes below stack pointer
+==5049== 
+==5049== Invalid read of size 1
+==5049==    at 0x48436E0: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48E2631: _IO_new_file_xsputn (fileops.c:1236)
+==5049==    by 0x48E2631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==5049==    by 0x48CA0FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff240 is on thread 1's stack
+==5049==  2400 bytes below stack pointer
+==5049== 
+==5049== Invalid read of size 1
+==5049==    at 0x48436EE: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48E2631: _IO_new_file_xsputn (fileops.c:1236)
+==5049==    by 0x48E2631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==5049==    by 0x48CA0FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff242 is on thread 1's stack
+==5049==  2398 bytes below stack pointer
+==5049== 
+==5049== Syscall param stat(file_name) points to unaddressable byte(s)
+==5049==    at 0x49606DA: _xstat (xstat.c:35)
+==5049==    by 0x10AF70: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff240 is on thread 1's stack
+==5049==  4120 bytes below stack pointer
+==5049== 
+==5051== Invalid read of size 1
+==5051==    at 0x10A1BA: argv1 (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10AFE4: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5051==  Address 0x1ffefff240 is on thread 1's stack
+==5051==  4032 bytes below stack pointer
+==5051== 
+==5051== Invalid read of size 1
+==5051==    at 0x10A287: argv1 (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10AFE4: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5051==  Address 0x1ffefff240 is on thread 1's stack
+==5051==  4032 bytes below stack pointer
+==5051== 
+==5051== Invalid read of size 1
+==5051==    at 0x10A5ED: envp1 (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10AFFA: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5051==  Address 0x1ffefff240 is on thread 1's stack
+==5051==  4032 bytes below stack pointer
+==5051== 
+==5051== Invalid read of size 1
+==5051==    at 0x10A65E: envp1 (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10AFFA: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5051==  Address 0x1ffefff240 is on thread 1's stack
+==5051==  4032 bytes below stack pointer
+==5051== 
+==5051== Invalid read of size 1
+==5051==    at 0x10A72B: envp1 (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10AFFA: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5051==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5051==  Address 0x1ffefff240 is on thread 1's stack
+==5051==  4032 bytes below stack pointer
+==5051== 
+--5049-- REDIR: 0x49ddb30 (libc.so.6:__stpcpy_avx2) redirected to 0x4842300 (stpcpy)
+==5049== 
+==5049== HEAP SUMMARY:
+==5049==     in use at exit: 0 bytes in 0 blocks
+==5049==   total heap usage: 42 allocs, 42 frees, 4,507 bytes allocated
+==5049== 
+==5049== All heap blocks were freed -- no leaks are possible
+==5049== 
+==5049== ERROR SUMMARY: 110 errors from 6 contexts (suppressed: 0 from 0)
+==5049== 
+==5049== 1 errors in context 1 of 6:
+==5049== Syscall param stat(file_name) points to unaddressable byte(s)
+==5049==    at 0x49606DA: _xstat (xstat.c:35)
+==5049==    by 0x10AF70: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff240 is on thread 1's stack
+==5049==  4120 bytes below stack pointer
+==5049== 
+==5049== 
+==5049== 1 errors in context 2 of 6:
+==5049== Invalid read of size 1
+==5049==    at 0x483EF46: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48CBD14: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff240 is on thread 1's stack
+==5049==  2488 bytes below stack pointer
+==5049== 
+==5049== 
+==5049== 17 errors in context 3 of 6:
+==5049== Invalid read of size 1
+==5049==    at 0x48436EE: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48E2631: _IO_new_file_xsputn (fileops.c:1236)
+==5049==    by 0x48E2631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==5049==    by 0x48CA0FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff242 is on thread 1's stack
+==5049==  2398 bytes below stack pointer
+==5049== 
+==5049== 
+==5049== 19 errors in context 4 of 6:
+==5049== Invalid read of size 1
+==5049==    at 0x48436E0: mempcpy (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48E2631: _IO_new_file_xsputn (fileops.c:1236)
+==5049==    by 0x48E2631: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==5049==    by 0x48CA0FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff240 is on thread 1's stack
+==5049==  2400 bytes below stack pointer
+==5049== 
+==5049== 
+==5049== 36 errors in context 5 of 6:
+==5049== Invalid read of size 1
+==5049==    at 0x48E270C: _IO_new_file_xsputn (fileops.c:1219)
+==5049==    by 0x48E270C: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1197)
+==5049==    by 0x48CA0FB: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff263 is on thread 1's stack
+==5049==  2381 bytes below stack pointer
+==5049== 
+==5049== 
+==5049== 36 errors in context 6 of 6:
+==5049== Invalid read of size 1
+==5049==    at 0x483EF54: strlen (in /usr/lib/x86_64-linux-gnu/valgrind/vgpreload_memcheck-amd64-linux.so)
+==5049==    by 0x48CBD14: __vfprintf_internal (vfprintf-internal.c:1688)
+==5049==    by 0x48B4D3E: printf (printf.c:33)
+==5049==    by 0x10AE72: execute_command (in /alx-pre_course/shell_custom/hsh)
+==5049==    by 0x10B661: main (in /alx-pre_course/shell_custom/hsh)
+==5049==  Address 0x1ffefff241 is on thread 1's stack
+==5049==  2487 bytes below stack pointer
+==5049== 
+==5049== ERROR SUMMARY: 110 errors from 6 contexts (suppressed: 0 from 0)
